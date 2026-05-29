@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 *{
     margin:0;
@@ -6,41 +6,97 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Inter',sans-serif;
-    background:#0a0f1e;
-    color:#fff;
     min-height:100vh;
+    color:#fff;
+
+    background:
+    radial-gradient(circle at top left,#2563eb40,transparent 25%),
+    radial-gradient(circle at top right,#7c3aed40,transparent 25%),
+    radial-gradient(circle at bottom,#06b6d440,transparent 35%),
+    #050816;
 }
 
 .container{
-    width:100%;
     max-width:1400px;
     margin:auto;
-    padding:30px;
+    padding:40px;
 }
 
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     padding:25px 35px;
-    background:#111827;
-    border:1px solid #1f2937;
-    border-radius:20px;
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
     margin-bottom:30px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.35);
 }
 
 header h1{
-    font-size:28px;
-    font-weight:700;
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:-1px;
 }
 
 .balance{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    border-radius:25px;
-    padding:40px;
+    position:relative;
+
+    overflow:hidden;
+
+    padding:50px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed,
+    #06b6d4
+    );
+
+    background-size:300% 300%;
+
+    animation:gradient 12s ease infinite;
+
     margin-bottom:30px;
+
+    box-shadow:
+    0 25px 60px rgba(37,99,235,.35);
+}
+
+.balance::before{
+    content:'';
+
+    position:absolute;
+
+    width:400px;
+    height:400px;
+
+    background:
+    rgba(255,255,255,.1);
+
+    border-radius:50%;
+
+    top:-200px;
+    right:-150px;
 }
 
 .balance h2{
@@ -50,38 +106,54 @@ header h1{
 }
 
 .balance span{
-    font-size:52px;
-    font-weight:700;
+    font-size:60px;
+    font-weight:800;
 }
 
 .stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:25px;
+
     margin-bottom:30px;
 }
 
 .card{
-    background:#111827;
-    border:1px solid #1f2937;
-    border-radius:20px;
-    padding:25px;
-    transition:.3s;
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    transition:.4s;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
 }
 
 .card:hover{
-    transform:translateY(-6px);
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 30px 60px rgba(0,0,0,.4);
 }
 
 .card h3{
-    color:#9ca3af;
+    color:#94a3b8;
     font-size:15px;
     margin-bottom:15px;
 }
 
 .card span{
-    font-size:32px;
-    font-weight:700;
+    font-size:36px;
+    font-weight:800;
 }
 
 .income{
@@ -97,18 +169,37 @@ header h1{
 }
 
 .chart-section{
-    background:#111827;
-    border:1px solid #1f2937;
-    border-radius:20px;
-    padding:30px;
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:35px;
+
     margin-bottom:30px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
 }
 
 .form-section{
-    background:#111827;
-    border:1px solid #1f2937;
-    border-radius:20px;
-    padding:30px;
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:35px;
+
     margin-bottom:30px;
 }
 
@@ -125,39 +216,70 @@ form{
 input,
 select{
     flex:1;
+
     min-width:200px;
-    padding:15px;
+
+    padding:16px;
+
     border:none;
-    border-radius:12px;
-    background:#1f2937;
+
+    border-radius:14px;
+
+    background:#111827;
+
     color:white;
+
+    transition:.3s;
 }
 
 input:focus,
 select:focus{
     outline:none;
+
+    box-shadow:
+    0 0 0 3px rgba(59,130,246,.4);
 }
 
 button{
-    padding:15px 30px;
     border:none;
-    border-radius:12px;
-    background:#2563eb;
-    color:white;
-    font-weight:600;
+
+    padding:16px 30px;
+
+    border-radius:14px;
+
     cursor:pointer;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+    );
+
     transition:.3s;
 }
 
 button:hover{
-    transform:translateY(-3px);
+    transform:
+    translateY(-3px);
 }
 
 .transactions{
-    background:#111827;
-    border:1px solid #1f2937;
-    border-radius:20px;
-    padding:30px;
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:35px;
 }
 
 .transactions h2{
@@ -172,10 +294,20 @@ button:hover{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px;
-    margin-bottom:10px;
-    background:#1f2937;
-    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:12px;
+
+    border-radius:16px;
+
+    background:#111827;
+
+    transition:.3s;
+}
+
+#transactionList li:hover{
+    transform:translateX(5px);
 }
 
 #transactionList li.income{
@@ -186,13 +318,42 @@ button:hover{
     border-left:5px solid #ef4444;
 }
 
+#transactionList button{
+    width:32px;
+    height:32px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#ef4444;
+}
+
 ::-webkit-scrollbar{
-    width:8px;
+    width:10px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background:#374151;
+    background:#334155;
     border-radius:20px;
+}
+
+@keyframes gradient{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
 }
 
 @media(max-width:900px){
@@ -202,11 +363,31 @@ button:hover{
     }
 
     .balance span{
-        font-size:40px;
+        font-size:42px;
     }
 
     form{
         flex-direction:column;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:20px;
+    }
+
+    header{
+        padding:20px;
+    }
+
+    .balance{
+        padding:30px;
+    }
+
+    .balance span{
+        font-size:34px;
     }
 
 }
