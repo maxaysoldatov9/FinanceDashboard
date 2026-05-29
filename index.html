@@ -1,12 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Finance Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    
+
+    <div class="container">
+
+        <header>
+            <h1>Finance Dashboard</h1>
+        </header>
+
+        <section class="balance">
+            <h2>Общий баланс</h2>
+            <span id="balance">0 ₸</span>
+        </section>
+
+        <section class="stats">
+
+            <div class="card income">
+                <h3>Доходы</h3>
+                <span id="income">0 ₸</span>
+            </div>
+
+            <div class="card expense">
+                <h3>Расходы</h3>
+                <span id="expense">0 ₸</span>
+            </div>
+
+            <div class="card savings">
+                <h3>Сбережения</h3>
+                <span id="savings">0 ₸</span>
+            </div>
+
+        </section>
+
+        <section class="chart-section">
+            <canvas id="financeChart"></canvas>
+        </section>
+
+        <section class="form-section">
+
+            <h2>Добавить транзакцию</h2>
+
+            <form id="transactionForm">
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Название"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Сумма"
+                    required
+                >
+
+                <select id="type">
+                    <option value="income">Доход</option>
+                    <option value="expense">Расход</option>
+                </select>
+
+                <button type="submit">
+                    Добавить
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="transactions">
+
+            <h2>История операций</h2>
+
+            <ul id="transactionList"></ul>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
